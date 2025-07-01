@@ -2,7 +2,10 @@ import { useEffect, useState } from 'react';
 import CardList from '../components/CardList';
 import Pagination from '../components/Pagination';
 import SearchBar from '../components/SearchBar';
+import Loading from '../components/Loading';
+import Error from '../components/Error';
 import { Character } from '../types';
+import styles from '../styles/PageLayout.module.css';
 
 const ITEMS_PER_PAGE = 20;
 
@@ -50,12 +53,12 @@ const Home = () => {
 
   return (
     <div>
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '2rem 0' }}>
-        <h1 style={{ textAlign: 'center' }}>Rick and Morty Characters</h1>
+      <div className={styles.centeredContainer}>
+        <h1 className={styles.centeredText}>Rick and Morty Characters</h1>
         <SearchBar onSearch={handleSearch} />
       </div>
-      {loading && <p style={{ textAlign: 'center' }}>Loading...</p>}
-      {error && <p style={{ textAlign: 'center' }}>{error}</p>}
+      {loading && <Loading />}
+      {error && <Error message={error} />}
       <CardList characters={characters} />
       <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
     </div>
