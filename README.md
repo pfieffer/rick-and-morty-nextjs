@@ -1,13 +1,17 @@
 # Rick and Morty Next.js Application
 
-This is a Next.js application that fetches data from the Rick and Morty API. The application showcases various frontend concepts including image loading, pagination, search functionality, and the display of character data in a list format using cards.
+This is a Next.js application that fetches data from the Rick and Morty API. The application demonstrates modern frontend concepts such as image loading, pagination, search, responsive card layouts, modular UI components, and clean separation of data, logic, and presentation.
 
 ## Features
 
-- **Character Cards**: Displays character information including images, names, and statuses.
-- **Search Functionality**: Allows users to search for characters by name.
-- **Pagination**: Enables navigation through multiple pages of character data.
-- **Image Loading**: Handles image loading with error fallback.
+- **Character Cards**: Displays character information (image, name, status, species, etc.) in a responsive grid.
+- **Character Detail Page**: Click a card to view full details about a character on a dedicated page.
+- **Search Functionality**: Search for characters by name with instant feedback.
+- **Pagination**: Navigate through multiple pages of character data.
+- **Image Loading**: Optimized image loading with error fallback.
+- **Loading and Error Screens**: Full-page, aesthetic loading and error components for a better user experience.
+- **Consistent Styling**: Shared CSS modules for uniform look and feel.
+- **Separation of Concerns**: Container/presenter pattern for maintainable code.
 
 ## Project Structure
 
@@ -19,16 +23,19 @@ rick-and-morty-nextjs
 │   │   ├── CardList.tsx
 │   │   ├── Pagination.tsx
 │   │   ├── SearchBar.tsx
-│   │   └── ImageLoader.tsx
+│   │   ├── Loading.tsx
+│   │   └── Error.tsx
 │   ├── pages
 │   │   ├── _app.tsx
-│   │   └── index.tsx
+│   │   ├── index.tsx
+│   │   └── character
+│   │       └── [id].tsx
 │   ├── styles
 │   │   ├── Card.module.css
 │   │   ├── CardList.module.css
 │   │   ├── Pagination.module.css
 │   │   ├── SearchBar.module.css
-│   │   └── globals.css
+│   │   └── PageLayout.module.css
 │   └── types
 │       └── index.ts
 ├── public
@@ -56,15 +63,15 @@ rick-and-morty-nextjs
 
 ## Running the Application
 
-To run the application in development mode, use the following command:
+To run the application in development mode:
 ```
 npm run dev
 ```
-Open your browser and navigate to `http://localhost:3000` to view the application.
+Open your browser and navigate to [http://localhost:3000](http://localhost:3000) to view the application.
 
 ## API
 
-The application fetches data from the [Rick and Morty API](https://rickandmortyapi.com/). It retrieves character data and displays it in a user-friendly format.
+The application fetches data from the [Rick and Morty API](https://rickandmortyapi.com/). It retrieves character data and displays it in a user-friendly format with search and pagination.
 
 ## Contributing
 
